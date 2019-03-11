@@ -1,0 +1,6 @@
+iptables --table nat --flush
+iptables --table nat --delete-chain
+iptables --table nat --append POSTROUTING --out-interface eth1 --j MASQUERADE
+iptables --append FORWARD --in-interface eth0 --j ACCEPT
+iptables-save
+iptables -L
